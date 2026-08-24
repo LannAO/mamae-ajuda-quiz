@@ -14,7 +14,42 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leads: {
+        Row: {
+          branch: string
+          clicou_whatsapp: boolean
+          completou_quiz: boolean
+          created_at: string
+          id: string
+          nome: string
+          protocolo: string | null
+          respostas: Json
+          whatsapp: string
+        }
+        Insert: {
+          branch?: string
+          clicou_whatsapp?: boolean
+          completou_quiz?: boolean
+          created_at?: string
+          id?: string
+          nome: string
+          protocolo?: string | null
+          respostas?: Json
+          whatsapp: string
+        }
+        Update: {
+          branch?: string
+          clicou_whatsapp?: boolean
+          completou_quiz?: boolean
+          created_at?: string
+          id?: string
+          nome?: string
+          protocolo?: string | null
+          respostas?: Json
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
