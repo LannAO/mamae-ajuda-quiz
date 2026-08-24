@@ -108,7 +108,7 @@ export function OptionList({
   onSelect,
 }: {
   opcoes: Opcao[];
-  selecionada?: string;
+  selecionada?: string | undefined;
   onSelect: (valor: string) => void;
 }) {
   return (
