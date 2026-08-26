@@ -38,7 +38,7 @@ export function Logo() {
   );
 }
 
-export function QuizHeader({ onBack }: { onBack?: () => void }) {
+export function QuizHeader({ onBack }: { onBack?: (() => void) | undefined }) {
   return (
     <header className="grid grid-cols-[40px_minmax(0,1fr)_40px] items-center px-4 py-3">
       {onBack ? (
