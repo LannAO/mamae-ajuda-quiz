@@ -122,8 +122,9 @@ export function QuizFunnel() {
     if (typeof window !== "undefined") {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const win = window as unknown as { fbq?: (...args: unknown[]) => void };
-      if (typeof win.fbq === "function") {
+      if (typeof win.fbq === "function" && !sessionStorage.getItem("fb_lead_disparado")) {
         win.fbq("track", "Lead");
+        sessionStorage.setItem("fb_lead_disparado", "1");
       }
     }
     if (estado.leadId) {
