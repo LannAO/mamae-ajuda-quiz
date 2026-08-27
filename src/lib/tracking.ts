@@ -67,7 +67,7 @@ export function capturarAtribuicao(): Atribuicao {
   return atual;
 }
 
-type PixelEvent = { event: string; params?: Record<string, unknown>; timestamp: string };
+type PixelEvent = { event: string; params?: Record<string, unknown> | undefined; timestamp: string };
 
 const PIXEL_QUEUE_KEY = "fbq_fallback_queue";
 const PIXEL_DEDUP_PREFIX = "fb_pixel_";
