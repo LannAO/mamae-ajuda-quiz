@@ -66,6 +66,11 @@ export function QuizFunnel() {
   const [erro, setErro] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
 
+  // Guarda a origem/campanha logo na entrada, antes de qualquer navegação
+  useEffect(() => {
+    capturarAtribuicao();
+  }, []);
+
   const progresso = PROGRESSO[step] ?? 0;
   const varianteProgresso = branch === "principal" ? "rosa" : "ouro";
   const podeVoltar =
