@@ -69,6 +69,8 @@ export function QuizFunnel() {
   // Guarda a origem/campanha logo na entrada, antes de qualquer navegação
   useEffect(() => {
     capturarAtribuicao();
+    // Tenta reenviar eventos que ficaram na fila de fallback do pixel
+    processarFilaPixel();
   }, []);
 
   const progresso = PROGRESSO[step] ?? 0;
