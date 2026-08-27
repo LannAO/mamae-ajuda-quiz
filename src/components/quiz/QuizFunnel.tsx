@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
 import diagGestante from "@/assets/diag-gestante.webp.asset.json";
@@ -14,6 +14,7 @@ import {
 } from "@/components/quiz/parts";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuizState } from "@/hooks/useQuizState";
+import { capturarAtribuicao } from "@/lib/tracking";
 import {
   OPCOES_EMO1,
   OPCOES_EMO2,
@@ -65,6 +66,11 @@ export function QuizFunnel() {
   const [erro, setErro] = useState<string | null>(null);
   const [enviando, setEnviando] = useState(false);
 
+  // Guarda a origem/campanha logo na entrada, antes de qualquer navegação
+  useEffect(() => {
+    capturarAtribuicao();
+  }, []);
+
   const progresso = PROGRESSO[step] ?? 0;
   const varianteProgresso = branch === "principal" ? "rosa" : "ouro";
   const podeVoltar =
@@ -98,6 +104,7 @@ export function QuizFunnel() {
       respostas,
       branch,
       protocolo,
+      ...capturarAtribuicao(),
     });
     setEnviando(false);
     irPara("loading", {

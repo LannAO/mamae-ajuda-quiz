@@ -20,10 +20,19 @@ export type Database = {
           clicou_whatsapp: boolean
           completou_quiz: boolean
           created_at: string
+          fbclid: string | null
+          gclid: string | null
           id: string
+          landing_url: string | null
           nome: string
           protocolo: string | null
+          referrer: string | null
           respostas: Json
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
           whatsapp: string
         }
         Insert: {
@@ -31,10 +40,19 @@ export type Database = {
           clicou_whatsapp?: boolean
           completou_quiz?: boolean
           created_at?: string
+          fbclid?: string | null
+          gclid?: string | null
           id?: string
+          landing_url?: string | null
           nome: string
           protocolo?: string | null
+          referrer?: string | null
           respostas?: Json
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
           whatsapp: string
         }
         Update: {
@@ -42,10 +60,19 @@ export type Database = {
           clicou_whatsapp?: boolean
           completou_quiz?: boolean
           created_at?: string
+          fbclid?: string | null
+          gclid?: string | null
           id?: string
+          landing_url?: string | null
           nome?: string
           protocolo?: string | null
+          referrer?: string | null
           respostas?: Json
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
           whatsapp?: string
         }
         Relationships: []
