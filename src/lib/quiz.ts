@@ -1,7 +1,7 @@
 // ---------------------------------------------------------------------------
 // Configuração do funil — troque o número do WhatsApp aqui.
 // ---------------------------------------------------------------------------
-export const WHATSAPP_NUMERO = "5562981159968";
+export const WHATSAPP_NUMERO = "5586994091713";
 export const VALOR_BENEFICIO = "R$ 6.484,00";
 export const POLITICA_PRIVACIDADE_URL = "/politica-de-privacidade";
 
