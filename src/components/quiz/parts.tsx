@@ -131,11 +131,27 @@ export function OptionList({
   );
 }
 
-export function Illustration({ emoji = "🤱", label }: { emoji?: string; label: string }) {
+export function Illustration({
+  emoji,
+  src,
+  label,
+}: {
+  emoji?: string;
+  src?: string;
+  label: string;
+}) {
   return (
     <div className="flex justify-center">
       <div className="quiz-illustration" role="img" aria-label={label}>
-        <span aria-hidden="true">{emoji}</span>
+        {src ? (
+          <img
+            src={src}
+            alt={label}
+            className="h-full w-full rounded-full object-cover"
+          />
+        ) : (
+          <span aria-hidden="true">{emoji ?? "🤱"}</span>
+        )}
       </div>
     </div>
   );
