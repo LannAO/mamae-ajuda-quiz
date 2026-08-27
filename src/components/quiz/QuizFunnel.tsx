@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 
+import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
 import {
   Illustration,
   LoadingScreen,
@@ -455,13 +456,11 @@ export function QuizFunnel() {
           <Screen scroll>
             <div className="rounded-2xl border border-border p-4">
               <div className="flex min-w-0 items-center gap-3">
-                <span
-                  className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary-softer text-2xl"
-                  role="img"
-                  aria-label="Foto da Dra. Hedilma Almeida"
-                >
-                  👩‍⚖️
-                </span>
+                <img
+                  src={draHedilmaFoto.url}
+                  alt="Foto da Dra. Hedilma Almeida"
+                  className="h-16 w-16 shrink-0 rounded-full object-cover"
+                />
                 <div className="min-w-0">
                   <p className="truncate font-bold text-foreground">
                     Dra. Hedilma Almeida
