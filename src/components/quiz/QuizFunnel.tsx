@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
 import diagGestante from "@/assets/diag-gestante.webp.asset.json";
