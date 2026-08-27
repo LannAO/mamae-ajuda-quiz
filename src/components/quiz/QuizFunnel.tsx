@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
-import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
-import diagGestante from "@/assets/diag-gestante.webp.asset.json";
-import heroMaeBebe from "@/assets/hero-mae-bebe.webp.asset.json";
+import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg";
+import diagGestante from "@/assets/diag-gestante.webp";
+import heroMaeBebe from "@/assets/hero-mae-bebe.webp";
 import {
   Illustration,
   LoadingScreen,
@@ -180,7 +180,7 @@ export function QuizFunnel() {
 
         {step === "hero" && (
           <Screen>
-            <Illustration src={heroMaeBebe.url} label="Ilustração de mãe abraçando o bebê" />
+            <Illustration src={heroMaeBebe} label="Ilustração de mãe abraçando o bebê" />
             <h1 className="quiz-title mt-5 text-center">
               Você está grávida e quer saber se tem direito ao{" "}
               <em className="font-extrabold text-primary not-italic">
@@ -436,7 +436,7 @@ export function QuizFunnel() {
 
         {step === "diagnostico" && (
           <Screen scroll>
-            <Illustration src={diagGestante.url} label="Ilustração de gestante" />
+            <Illustration src={diagGestante} label="Ilustração de gestante" />
             <div className="mt-4 flex justify-center">
               <span className="rounded-full bg-success px-3 py-1 text-xs font-bold text-success-foreground">
                 🎉 Boa notícia!
@@ -469,7 +469,7 @@ export function QuizFunnel() {
             <div className="rounded-2xl border border-border p-4">
               <div className="flex min-w-0 items-center gap-3">
                 <img
-                  src={draHedilmaFoto.url}
+                  src={draHedilmaFoto}
                   alt="Foto da Dra. Hedilma Almeida"
                   className="h-16 w-16 shrink-0 rounded-full object-cover"
                 />
