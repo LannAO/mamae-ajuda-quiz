@@ -14,7 +14,7 @@ import {
 } from "@/components/quiz/parts";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuizState } from "@/hooks/useQuizState";
-import { capturarAtribuicao } from "@/lib/tracking";
+import { capturarAtribuicao, dispararPixel, processarFilaPixel } from "@/lib/tracking";
 import {
   OPCOES_EMO1,
   OPCOES_EMO2,
@@ -69,6 +69,8 @@ export function QuizFunnel() {
   // Guarda a origem/campanha logo na entrada, antes de qualquer navegação
   useEffect(() => {
     capturarAtribuicao();
+    // Tenta reenviar eventos que ficaram na fila de fallback do pixel
+    processarFilaPixel();
   }, []);
 
   const progresso = PROGRESSO[step] ?? 0;
@@ -126,14 +128,9 @@ export function QuizFunnel() {
   }, [estado.leadId, irPara, respostas]);
 
   const abrirWhatsapp = () => {
-    if (typeof window !== "undefined") {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const win = window as unknown as { fbq?: (...args: unknown[]) => void };
-      if (typeof win.fbq === "function" && !sessionStorage.getItem("fb_lead_disparado")) {
-        win.fbq("track", "Lead");
-        sessionStorage.setItem("fb_lead_disparado", "1");
-      }
-    }
+    // Dispara o evento Lead com log, deduplicação e fallback
+    dispararPixel("Lead", undefined, { once: true, onceKey: "fb_lead_disparado" });
+
     if (estado.leadId) {
       void supabase.rpc("atualizar_progresso_lead", {
         p_id: estado.leadId,
