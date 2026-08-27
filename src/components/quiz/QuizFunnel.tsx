@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 
-import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
-import diagGestante from "@/assets/diag-gestante.webp.asset.json";
-import heroMaeBebe from "@/assets/hero-mae-bebe.webp.asset.json";
+import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg";
+import diagGestante from "@/assets/diag-gestante.webp";
+import heroMaeBebe from "@/assets/hero-mae-bebe.webp";
 import {
   Illustration,
   LoadingScreen,
