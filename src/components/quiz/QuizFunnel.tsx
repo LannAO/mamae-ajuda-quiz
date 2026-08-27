@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 
 import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
+import diagGestante from "@/assets/diag-gestante.webp.asset.json";
 import heroMaeBebe from "@/assets/hero-mae-bebe.webp.asset.json";
 import {
   Illustration,
@@ -419,7 +420,7 @@ export function QuizFunnel() {
 
         {step === "diagnostico" && (
           <Screen scroll>
-            <Illustration emoji="🤰" label="Ilustração de gestante" />
+            <Illustration src={diagGestante.url} label="Ilustração de gestante" />
             <div className="mt-4 flex justify-center">
               <span className="rounded-full bg-success px-3 py-1 text-xs font-bold text-success-foreground">
                 🎉 Boa notícia!
