@@ -119,6 +119,13 @@ export function QuizFunnel() {
   }, [estado.leadId, irPara, respostas]);
 
   const abrirWhatsapp = () => {
+    if (typeof window !== "undefined") {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const win = window as unknown as { fbq?: (...args: unknown[]) => void };
+      if (typeof win.fbq === "function") {
+        win.fbq("track", "Lead");
+      }
+    }
     if (estado.leadId) {
       void supabase.rpc("atualizar_progresso_lead", {
         p_id: estado.leadId,
