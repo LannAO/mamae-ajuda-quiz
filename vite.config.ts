@@ -7,6 +7,10 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Sinaliza intenção de deploy externo: dentro da Lovable o alvo continua o padrão,
+  // e fora dela (Vercel/Netlify/CI) o alvo é detectado automaticamente
+  // pela plataforma ou pela variável NITRO_PRESET (ex.: NITRO_PRESET=vercel).
+  nitro: true,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
