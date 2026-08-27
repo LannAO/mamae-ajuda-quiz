@@ -14,6 +14,7 @@ import {
 } from "@/components/quiz/parts";
 import { supabase } from "@/integrations/supabase/client";
 import { useQuizState } from "@/hooks/useQuizState";
+import { capturarAtribuicao } from "@/lib/tracking";
 import {
   OPCOES_EMO1,
   OPCOES_EMO2,
