@@ -31,8 +31,8 @@ export function Logo() {
         <Scale className="h-4 w-4" aria-hidden="true" />
       </span>
       <span className="text-sm font-bold tracking-tight text-foreground">
-        Castro Pereira
-        <span className="ml-1 font-medium text-subtle-foreground">Advogados</span>
+        Hedilma Almeida
+        <span className="ml-1 font-medium text-subtle-foreground">Advogada</span>
       </span>
     </div>
   );

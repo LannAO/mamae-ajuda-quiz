@@ -458,13 +458,13 @@ export function QuizFunnel() {
                 <span
                   className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-primary-softer text-2xl"
                   role="img"
-                  aria-label="Foto do Dr. Thiago de Castro Pereira"
+                  aria-label="Foto da Dra. Hedilma Almeida"
                 >
-                  👨‍⚖️
+                  👩‍⚖️
                 </span>
                 <div className="min-w-0">
                   <p className="truncate font-bold text-foreground">
-                    Dr. Thiago de Castro Pereira
+                    Dra. Hedilma Almeida
                   </p>
                   <p className="text-xs text-subtle-foreground">
                     Especialista em Direito Previdenciário
