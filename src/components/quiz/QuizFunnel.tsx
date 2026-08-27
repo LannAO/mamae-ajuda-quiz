@@ -109,20 +109,21 @@ export function QuizFunnel() {
 
   const concluirAnalise = useCallback(() => {
     if (estado.leadId) {
-      void supabase
-        .from("leads")
-        .update({ completou_quiz: true, respostas })
-        .eq("id", estado.leadId);
+      void supabase.rpc("atualizar_progresso_lead", {
+        p_id: estado.leadId,
+        p_completou: true,
+        p_respostas: respostas,
+      });
     }
     irPara("diagnostico");
   }, [estado.leadId, irPara, respostas]);
 
   const abrirWhatsapp = () => {
     if (estado.leadId) {
-      void supabase
-        .from("leads")
-        .update({ clicou_whatsapp: true })
-        .eq("id", estado.leadId);
+      void supabase.rpc("atualizar_progresso_lead", {
+        p_id: estado.leadId,
+        p_clicou: true,
+      });
     }
     const msg = montarMensagemWhatsapp(
       estado.nome || nome,
