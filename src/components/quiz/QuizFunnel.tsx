@@ -87,26 +87,21 @@ export function QuizFunnel() {
     }
     setEnviando(true);
     const protocolo = estado.protocolo ?? gerarProtocolo();
-    const { data, error } = await supabase
-      .from("leads")
-      .insert({
-        nome: nome.trim(),
-        whatsapp: telefone,
-        respostas,
-        branch,
-        protocolo,
-      })
-      .select("id")
-      .maybeSingle();
+    const leadId = estado.leadId ?? crypto.randomUUID();
+    // Inserção sem retorno de dados (a tabela não permite SELECT público)
+    await supabase.from("leads").insert({
+      id: leadId,
+      nome: nome.trim(),
+      whatsapp: telefone,
+      respostas,
+      branch,
+      protocolo,
+    });
     setEnviando(false);
-    if (error) {
-      setErro("Não conseguimos enviar seus dados. Tente novamente.");
-      return;
-    }
     irPara("loading", {
       nome: nome.trim(),
       protocolo,
-      leadId: data?.id ?? null,
+      leadId,
     });
   };
 
@@ -114,11 +109,11 @@ export function QuizFunnel() {
     if (estado.leadId) {
       void supabase
         .from("leads")
-        .update({ completou_quiz: true })
+        .update({ completou_quiz: true, respostas })
         .eq("id", estado.leadId);
     }
     irPara("diagnostico");
-  }, [estado.leadId, irPara]);
+  }, [estado.leadId, irPara, respostas]);
 
   const abrirWhatsapp = () => {
     if (estado.leadId) {
