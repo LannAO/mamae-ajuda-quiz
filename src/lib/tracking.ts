@@ -166,3 +166,49 @@ export function processarFilaPixel(): void {
     // ignora fila corrompida
   }
 }
+
+export const META_PIXEL_ID = "4568806393334444";
+
+/**
+ * Carrega o SDK do Meta Pixel no navegador e dispara o PageView.
+ * Necessário porque scripts inline no head do SSR não são emitidos neste stack.
+ */
+export function inicializarPixel(): void {
+  if (typeof window === "undefined") return;
+
+  const win = window as unknown as {
+    fbq?: ((...args: unknown[]) => void) & { callMethod?: unknown; queue?: unknown[]; push?: unknown; loaded?: boolean; version?: string };
+    _fbq?: unknown;
+  };
+
+  if (!win.fbq) {
+    const n: any = function (...args: unknown[]) {
+      n.callMethod ? (n.callMethod as any).apply(n, args) : n.queue.push(args);
+    };
+    n.push = n;
+    n.loaded = true;
+    n.version = "2.0";
+    n.queue = [];
+    win.fbq = n;
+    if (!win._fbq) win._fbq = n;
+
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://connect.facebook.net/en_US/fbevents.js";
+    script.onload = () => {
+      logPixel("init", "fbevents.js", { status: "loaded" });
+      processarFilaPixel();
+    };
+    document.head.appendChild(script);
+  }
+
+  if (!window.sessionStorage.getItem("fb_pixel_initialized")) {
+    win.fbq!("init", META_PIXEL_ID);
+    window.sessionStorage.setItem("fb_pixel_initialized", "1");
+  } else {
+    win.fbq!("init", META_PIXEL_ID);
+  }
+
+  win.fbq!("track", "PageView");
+  logPixel("init", "PageView", { pixelId: META_PIXEL_ID });
+}
