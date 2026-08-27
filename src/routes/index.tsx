@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { QuizFunnel } from "@/components/quiz/QuizFunnel";
 
-const TITLE = "Auxílio Maternidade — Castro Pereira Advogados";
+const TITLE = "Auxílio Maternidade — Hedilma Almeida Advogada";
 const DESCRIPTION =
   "Descubra em 2 minutos se você tem direito ao Auxílio Maternidade do INSS. Análise gratuita com especialistas em Direito Previdenciário.";
 
