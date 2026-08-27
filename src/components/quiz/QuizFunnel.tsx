@@ -439,7 +439,6 @@ export function QuizFunnel() {
             <p className="quiz-text mt-4">
               Para confirmar o valor exato e dar entrada no pedido, precisamos checar
               alguns detalhes do seu histórico com uma especialista do escritório.
-              Protocolo: <strong>{estado.protocolo}</strong>
             </p>
             <PrimaryButton onClick={() => irPara("advogado")}>
               Ver próximo passo
