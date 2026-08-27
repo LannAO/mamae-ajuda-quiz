@@ -49,7 +49,7 @@ const DEPOIMENTOS = [
     nome: "Juliana Martins",
     quando: "há 3 meses",
     texto:
-      "Estava desempregada e achava que não conseguiria nada. O Dr. Thiago conseguiu meu salário-maternidade e ajudou demais no enxoval.",
+      "Estava desempregada e achava que não conseguiria nada. A Dra Hedilma conseguiu meu salário-maternidade e ajudou demais no enxoval.",
   },
 ];
 
