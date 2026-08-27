@@ -98,6 +98,7 @@ export function QuizFunnel() {
       respostas,
       branch,
       protocolo,
+      ...capturarAtribuicao(),
     });
     setEnviando(false);
     irPara("loading", {
