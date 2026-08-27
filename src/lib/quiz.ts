@@ -116,8 +116,8 @@ export function montarMensagemWhatsapp(
   respostas: Record<string, string>,
 ): string {
   const linhas = [
-    `Olá! Meu nome é ${nome}.`,
-    `Fiz o quiz do Auxílio Maternidade (protocolo ${protocolo}) e quero saber se tenho direito.`,
+    `Oi! Sou ${nome}.`,
+    `Fiz o quiz do Auxílio Maternidade (protocolo ${protocolo}) e quero saber se tenho direito. Pode me ajudar?`,
   ];
   if (respostas["semanas"]) linhas.push(`Gestação: ${respostas["semanas"]}`);
   if (respostas["trabalho"]) linhas.push(`Situação: ${respostas["trabalho"]}`);
