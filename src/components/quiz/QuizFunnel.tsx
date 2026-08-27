@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 
 import draHedilmaFoto from "@/assets/dra-hedilma-almeida.jpg.asset.json";
+import heroMaeBebe from "@/assets/hero-mae-bebe.webp.asset.json";
 import {
   Illustration,
   LoadingScreen,
@@ -162,7 +163,7 @@ export function QuizFunnel() {
 
         {step === "hero" && (
           <Screen>
-            <Illustration emoji="🤱" label="Ilustração de mãe abraçando o bebê" />
+            <Illustration src={heroMaeBebe.url} label="Ilustração de mãe abraçando o bebê" />
             <h1 className="quiz-title mt-5 text-center">
               Você está grávida e quer saber se tem direito ao{" "}
               <em className="font-extrabold text-primary not-italic">
