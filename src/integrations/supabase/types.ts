@@ -55,7 +55,15 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      atualizar_progresso_lead: {
+        Args: {
+          p_clicou?: boolean
+          p_completou?: boolean
+          p_id: string
+          p_respostas?: Json
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
